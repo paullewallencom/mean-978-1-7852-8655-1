@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for meanshop/server/api/user/index.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">meanshop/server/api/user/index.js</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(11 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(11 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">meanshop/server/api/user/</a> &#187; index.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+var express = require('express');
+var controller = require('./user.controller');
+var auth = require('../../auth/auth.service');
+&nbsp;
+var router = express.Router();
+&nbsp;
+router.get('/', auth.hasRole('admin'), controller.index);
+router['delete']('/:id', auth.hasRole('admin'), controller.destroy);
+router.get('/me', auth.isAuthenticated(), controller.me);
+router.put('/:id/password', auth.isAuthenticated(), controller.changePassword);
+router.get('/:id', auth.isAuthenticated(), controller.show);
+router.post('/', controller.create);
+&nbsp;
+module.exports = router;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZHJpYW4vY29kZS9tZWFuc2hvcC9zZXJ2ZXIvYXBpL3VzZXIvaW5kZXguanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxDQUFDOztBQUViLElBQUksT0FBTyxHQUFHLE9BQU8sQ0FBQyxTQUFTLENBQUMsQ0FBQztBQUNqQyxJQUFJLFVBQVUsR0FBRyxPQUFPLENBQUMsbUJBQW1CLENBQUMsQ0FBQztBQUM5QyxJQUFJLElBQUksR0FBRyxPQUFPLENBQUMseUJBQXlCLENBQUMsQ0FBQzs7QUFFOUMsSUFBSSxNQUFNLEdBQUcsT0FBTyxDQUFDLE1BQU0sRUFBRSxDQUFDOztBQUU5QixNQUFNLENBQUMsR0FBRyxDQUFDLEdBQUcsRUFBRSxJQUFJLENBQUMsT0FBTyxDQUFDLE9BQU8sQ0FBQyxFQUFFLFVBQVUsQ0FBQyxLQUFLLENBQUMsQ0FBQztBQUN6RCxNQUFNLFVBQU8sQ0FBQyxNQUFNLEVBQUUsSUFBSSxDQUFDLE9BQU8sQ0FBQyxPQUFPLENBQUMsRUFBRSxVQUFVLENBQUMsT0FBTyxDQUFDLENBQUM7QUFDakUsTUFBTSxDQUFDLEdBQUcsQ0FBQyxLQUFLLEVBQUUsSUFBSSxDQUFDLGVBQWUsRUFBRSxFQUFFLFVBQVUsQ0FBQyxFQUFFLENBQUMsQ0FBQztBQUN6RCxNQUFNLENBQUMsR0FBRyxDQUFDLGVBQWUsRUFBRSxJQUFJLENBQUMsZUFBZSxFQUFFLEVBQUUsVUFBVSxDQUFDLGNBQWMsQ0FBQyxDQUFDO0FBQy9FLE1BQU0sQ0FBQyxHQUFHLENBQUMsTUFBTSxFQUFFLElBQUksQ0FBQyxlQUFlLEVBQUUsRUFBRSxVQUFVLENBQUMsSUFBSSxDQUFDLENBQUM7QUFDNUQsTUFBTSxDQUFDLElBQUksQ0FBQyxHQUFHLEVBQUUsVUFBVSxDQUFDLE1BQU0sQ0FBQyxDQUFDOztBQUVwQyxNQUFNLENBQUMsT0FBTyxHQUFHLE1BQU0sQ0FBQyIsImZpbGUiOiIvVXNlcnMvYWRyaWFuL2NvZGUvbWVhbnNob3Avc2VydmVyL2FwaS91c2VyL2luZGV4LmpzIiwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBzdHJpY3QnO1xuXG52YXIgZXhwcmVzcyA9IHJlcXVpcmUoJ2V4cHJlc3MnKTtcbnZhciBjb250cm9sbGVyID0gcmVxdWlyZSgnLi91c2VyLmNvbnRyb2xsZXInKTtcbnZhciBhdXRoID0gcmVxdWlyZSgnLi4vLi4vYXV0aC9hdXRoLnNlcnZpY2UnKTtcblxudmFyIHJvdXRlciA9IGV4cHJlc3MuUm91dGVyKCk7XG5cbnJvdXRlci5nZXQoJy8nLCBhdXRoLmhhc1JvbGUoJ2FkbWluJyksIGNvbnRyb2xsZXIuaW5kZXgpO1xucm91dGVyLmRlbGV0ZSgnLzppZCcsIGF1dGguaGFzUm9sZSgnYWRtaW4nKSwgY29udHJvbGxlci5kZXN0cm95KTtcbnJvdXRlci5nZXQoJy9tZScsIGF1dGguaXNBdXRoZW50aWNhdGVkKCksIGNvbnRyb2xsZXIubWUpO1xucm91dGVyLnB1dCgnLzppZC9wYXNzd29yZCcsIGF1dGguaXNBdXRoZW50aWNhdGVkKCksIGNvbnRyb2xsZXIuY2hhbmdlUGFzc3dvcmQpO1xucm91dGVyLmdldCgnLzppZCcsIGF1dGguaXNBdXRoZW50aWNhdGVkKCksIGNvbnRyb2xsZXIuc2hvdyk7XG5yb3V0ZXIucG9zdCgnLycsIGNvbnRyb2xsZXIuY3JlYXRlKTtcblxubW9kdWxlLmV4cG9ydHMgPSByb3V0ZXI7XG4iXX0=</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Aug 27 2015 23:38:07 GMT-0400 (AST)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

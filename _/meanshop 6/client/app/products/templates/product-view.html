@@ -1,0 +1,23 @@
+<navbar></navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-2">
+      <h3>{{product.title}}</h3>
+      <img src="{{product.imageUrl}}" alt="{{product.title}}">
+      <div class="caption">
+        <p>{{product.description}}</p>
+        <p>{{product.price | currency }}</p>
+        <p>
+          <ngcart-addtocart id="{{product._id}}" quantity="1" quantity-max="9" name="{{product.title}}" price="{{product.price}}" template-url="components/ngcart/addtocart.html" data="product">Add to Cart</ngcart-addtocart>
+
+          <a ui-sref="products" class="btn btn-default" role="button">Back</a>
+          <a ui-sref="editProduct({id: product._id})" class="btn btn-default" role="button">Edit</a>
+          <a class="btn btn-danger" ng-click="deleteProduct()">Delete</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer></footer>

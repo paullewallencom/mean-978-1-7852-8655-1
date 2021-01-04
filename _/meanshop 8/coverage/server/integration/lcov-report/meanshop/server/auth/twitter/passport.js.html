@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for meanshop/server/auth/twitter/passport.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">meanshop/server/auth/twitter/passport.js</span></h1>
+    <h2>
+        Statements: <span class="metric">33.33% <small>(4 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">16.67% <small>(1 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">33.33% <small>(4 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">meanshop/server/auth/twitter/</a> &#187; passport.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+exports.setup = function (User, config) {
+  var passport = require('passport');
+  var TwitterStrategy = require('passport-twitter').Strategy;
+&nbsp;
+  passport.use(new TwitterStrategy({
+    consumerKey: config.twitter.clientID,
+    consumerSecret: config.twitter.clientSecret,
+    callbackURL: config.twitter.callbackURL
+  }, <span class="fstat-no" title="function not covered" >function (token, tokenSecret, profile, done) {</span>
+<span class="cstat-no" title="statement not covered" >    User.findOneAsync({</span>
+      'twitter.id_str': profile.id
+    }).then(<span class="fstat-no" title="function not covered" >function (user) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!user) {</span>
+<span class="cstat-no" title="statement not covered" >        user = new User({</span>
+          name: profile.displayName,
+          username: profile.username,
+          role: 'user',
+          provider: 'twitter',
+          twitter: profile._json
+        });
+<span class="cstat-no" title="statement not covered" >        user.saveAsync().then(<span class="fstat-no" title="function not covered" >function (user) {</span></span>
+<span class="cstat-no" title="statement not covered" >          return done(null, user);</span>
+        })['catch'](<span class="fstat-no" title="function not covered" >function (err) {</span>
+<span class="cstat-no" title="statement not covered" >          return done(err);</span>
+        });
+      } else {
+<span class="cstat-no" title="statement not covered" >        return done(null, user);</span>
+      }
+    })['catch'](<span class="fstat-no" title="function not covered" >function (err) {</span>
+<span class="cstat-no" title="statement not covered" >      return done(err);</span>
+    });
+  }));
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZHJpYW4vY29kZS9tZWFuc2hvcC9zZXJ2ZXIvYXV0aC90d2l0dGVyL3Bhc3Nwb3J0LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsT0FBTyxDQUFDLEtBQUssR0FBRyxVQUFTLElBQUksRUFBRSxNQUFNLEVBQUU7QUFDckMsTUFBSSxRQUFRLEdBQUcsT0FBTyxDQUFDLFVBQVUsQ0FBQyxDQUFDO0FBQ25DLE1BQUksZUFBZSxHQUFHLE9BQU8sQ0FBQyxrQkFBa0IsQ0FBQyxDQUFDLFFBQVEsQ0FBQzs7QUFFM0QsVUFBUSxDQUFDLEdBQUcsQ0FBQyxJQUFJLGVBQWUsQ0FBQztBQUMvQixlQUFXLEVBQUUsTUFBTSxDQUFDLE9BQU8sQ0FBQyxRQUFRO0FBQ3BDLGtCQUFjLEVBQUUsTUFBTSxDQUFDLE9BQU8sQ0FBQyxZQUFZO0FBQzNDLGVBQVcsRUFBRSxNQUFNLENBQUMsT0FBTyxDQUFDLFdBQVc7R0FDeEMsRUFDRCxVQUFTLEtBQUssRUFBRSxXQUFXLEVBQUUsT0FBTyxFQUFFLElBQUksRUFBRTtBQUMxQyxRQUFJLENBQUMsWUFBWSxDQUFDO0FBQ2hCLHNCQUFnQixFQUFFLE9BQU8sQ0FBQyxFQUFFO0tBQzdCLENBQUMsQ0FDQyxJQUFJLENBQUMsVUFBUyxJQUFJLEVBQUU7QUFDbkIsVUFBSSxDQUFDLElBQUksRUFBRTtBQUNULFlBQUksR0FBRyxJQUFJLElBQUksQ0FBQztBQUNkLGNBQUksRUFBRSxPQUFPLENBQUMsV0FBVztBQUN6QixrQkFBUSxFQUFFLE9BQU8sQ0FBQyxRQUFRO0FBQzFCLGNBQUksRUFBRSxNQUFNO0FBQ1osa0JBQVEsRUFBRSxTQUFTO0FBQ25CLGlCQUFPLEVBQUUsT0FBTyxDQUFDLEtBQUs7U0FDdkIsQ0FBQyxDQUFDO0FBQ0gsWUFBSSxDQUFDLFNBQVMsRUFBRSxDQUNiLElBQUksQ0FBQyxVQUFTLElBQUksRUFBRTtBQUNuQixpQkFBTyxJQUFJLENBQUMsSUFBSSxFQUFFLElBQUksQ0FBQyxDQUFDO1NBQ3pCLENBQUMsU0FDSSxDQUFDLFVBQVMsR0FBRyxFQUFFO0FBQ25CLGlCQUFPLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQztTQUNsQixDQUFDLENBQUM7T0FDTixNQUFNO0FBQ0wsZUFBTyxJQUFJLENBQUMsSUFBSSxFQUFFLElBQUksQ0FBQyxDQUFDO09BQ3pCO0tBQ0YsQ0FBQyxTQUNJLENBQUMsVUFBUyxHQUFHLEVBQUU7QUFDbkIsYUFBTyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUM7S0FDbEIsQ0FBQyxDQUFDO0dBQ04sQ0FBQyxDQUFDLENBQUM7Q0FDTCxDQUFDIiwiZmlsZSI6Ii9Vc2Vycy9hZHJpYW4vY29kZS9tZWFuc2hvcC9zZXJ2ZXIvYXV0aC90d2l0dGVyL3Bhc3Nwb3J0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0cy5zZXR1cCA9IGZ1bmN0aW9uKFVzZXIsIGNvbmZpZykge1xuICB2YXIgcGFzc3BvcnQgPSByZXF1aXJlKCdwYXNzcG9ydCcpO1xuICB2YXIgVHdpdHRlclN0cmF0ZWd5ID0gcmVxdWlyZSgncGFzc3BvcnQtdHdpdHRlcicpLlN0cmF0ZWd5O1xuXG4gIHBhc3Nwb3J0LnVzZShuZXcgVHdpdHRlclN0cmF0ZWd5KHtcbiAgICBjb25zdW1lcktleTogY29uZmlnLnR3aXR0ZXIuY2xpZW50SUQsXG4gICAgY29uc3VtZXJTZWNyZXQ6IGNvbmZpZy50d2l0dGVyLmNsaWVudFNlY3JldCxcbiAgICBjYWxsYmFja1VSTDogY29uZmlnLnR3aXR0ZXIuY2FsbGJhY2tVUkxcbiAgfSxcbiAgZnVuY3Rpb24odG9rZW4sIHRva2VuU2VjcmV0LCBwcm9maWxlLCBkb25lKSB7XG4gICAgVXNlci5maW5kT25lQXN5bmMoe1xuICAgICAgJ3R3aXR0ZXIuaWRfc3RyJzogcHJvZmlsZS5pZFxuICAgIH0pXG4gICAgICAudGhlbihmdW5jdGlvbih1c2VyKSB7XG4gICAgICAgIGlmICghdXNlcikge1xuICAgICAgICAgIHVzZXIgPSBuZXcgVXNlcih7XG4gICAgICAgICAgICBuYW1lOiBwcm9maWxlLmRpc3BsYXlOYW1lLFxuICAgICAgICAgICAgdXNlcm5hbWU6IHByb2ZpbGUudXNlcm5hbWUsXG4gICAgICAgICAgICByb2xlOiAndXNlcicsXG4gICAgICAgICAgICBwcm92aWRlcjogJ3R3aXR0ZXInLFxuICAgICAgICAgICAgdHdpdHRlcjogcHJvZmlsZS5fanNvblxuICAgICAgICAgIH0pO1xuICAgICAgICAgIHVzZXIuc2F2ZUFzeW5jKClcbiAgICAgICAgICAgIC50aGVuKGZ1bmN0aW9uKHVzZXIpIHtcbiAgICAgICAgICAgICAgcmV0dXJuIGRvbmUobnVsbCwgdXNlcik7XG4gICAgICAgICAgICB9KVxuICAgICAgICAgICAgLmNhdGNoKGZ1bmN0aW9uKGVycikge1xuICAgICAgICAgICAgICByZXR1cm4gZG9uZShlcnIpO1xuICAgICAgICAgICAgfSk7XG4gICAgICAgIH0gZWxzZSB7XG4gICAgICAgICAgcmV0dXJuIGRvbmUobnVsbCwgdXNlcik7XG4gICAgICAgIH1cbiAgICAgIH0pXG4gICAgICAuY2F0Y2goZnVuY3Rpb24oZXJyKSB7XG4gICAgICAgIHJldHVybiBkb25lKGVycik7XG4gICAgICB9KTtcbiAgfSkpO1xufTtcbiJdfQ==</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Aug 27 2015 23:38:07 GMT-0400 (AST)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

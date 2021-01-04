@@ -1,0 +1,24 @@
+<navbar></navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4" ng-show="products.length < 1"> No products to show.</div>
+    <div class="col-sm-6 col-md-4" ng-repeat="product in products">
+      <div class="thumbnail">
+        <h3>{{product.title}}</h3>
+        <img src="{{product.imageUrl}}" alt="{{product.title}}">
+        <figcaption class="figure-caption">{{product.description | limitTo: 100}} ...</figcaption>
+        <div class="caption">
+          <p>{{product.price | currency }}</p>
+          <p>
+            <ngcart-addtocart id="{{product._id}}" quantity="1" quantity-max="9" name="{{product.title}}" price="{{product.price}}" template-url="components/ngcart/addtocart.html" data="product">Add to Cart</ngcart-addtocart>
+
+            <a ui-sref="viewProduct({id: product._id})" class="btn btn-default" role="button">Details</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer></footer>

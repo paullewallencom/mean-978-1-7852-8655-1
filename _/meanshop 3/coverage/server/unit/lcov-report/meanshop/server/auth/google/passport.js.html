@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for meanshop/server/auth/google/passport.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../../prettify.css">
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">meanshop/server/auth/google/passport.js</span></h1>
+    <h2>
+        Statements: <span class="metric">33.33% <small>(4 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">16.67% <small>(1 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">33.33% <small>(4 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">meanshop/server/auth/google/</a> &#187; passport.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+var passport = require('passport');
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+&nbsp;
+exports.setup = function (User, config) {
+  passport.use(new GoogleStrategy({
+    clientID: config.google.clientID,
+    clientSecret: config.google.clientSecret,
+    callbackURL: config.google.callbackURL
+  }, <span class="fstat-no" title="function not covered" >function (accessToken, refreshToken, profile, done) {</span>
+<span class="cstat-no" title="statement not covered" >    User.findOneAsync({</span>
+      'google.id': profile.id
+    }).then(<span class="fstat-no" title="function not covered" >function (user) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!user) {</span>
+<span class="cstat-no" title="statement not covered" >        user = new User({</span>
+          name: profile.displayName,
+          email: profile.emails[0].value,
+          role: 'user',
+          username: profile.emails[0].value.split('@')[0],
+          provider: 'google',
+          google: profile._json
+        });
+<span class="cstat-no" title="statement not covered" >        user.saveAsync().then(<span class="fstat-no" title="function not covered" >function (user) {</span></span>
+<span class="cstat-no" title="statement not covered" >          return done(null, user);</span>
+        })['catch'](<span class="fstat-no" title="function not covered" >function (err) {</span>
+<span class="cstat-no" title="statement not covered" >          return done(err);</span>
+        });
+      } else {
+<span class="cstat-no" title="statement not covered" >        return done(null, user);</span>
+      }
+    })['catch'](<span class="fstat-no" title="function not covered" >function (err) {</span>
+<span class="cstat-no" title="statement not covered" >      return done(err);</span>
+    });
+  }));
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZHJpYW4vY29kZS9tZWFuc2hvcC9zZXJ2ZXIvYXV0aC9nb29nbGUvcGFzc3BvcnQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxJQUFJLFFBQVEsR0FBRyxPQUFPLENBQUMsVUFBVSxDQUFDLENBQUM7QUFDbkMsSUFBSSxjQUFjLEdBQUcsT0FBTyxDQUFDLHVCQUF1QixDQUFDLENBQUMsY0FBYyxDQUFDOztBQUVyRSxPQUFPLENBQUMsS0FBSyxHQUFHLFVBQVMsSUFBSSxFQUFFLE1BQU0sRUFBRTtBQUNyQyxVQUFRLENBQUMsR0FBRyxDQUFDLElBQUksY0FBYyxDQUFDO0FBQzlCLFlBQVEsRUFBRSxNQUFNLENBQUMsTUFBTSxDQUFDLFFBQVE7QUFDaEMsZ0JBQVksRUFBRSxNQUFNLENBQUMsTUFBTSxDQUFDLFlBQVk7QUFDeEMsZUFBVyxFQUFFLE1BQU0sQ0FBQyxNQUFNLENBQUMsV0FBVztHQUN2QyxFQUNELFVBQVMsV0FBVyxFQUFFLFlBQVksRUFBRSxPQUFPLEVBQUUsSUFBSSxFQUFFO0FBQ2pELFFBQUksQ0FBQyxZQUFZLENBQUM7QUFDaEIsaUJBQVcsRUFBRSxPQUFPLENBQUMsRUFBRTtLQUN4QixDQUFDLENBQ0MsSUFBSSxDQUFDLFVBQVMsSUFBSSxFQUFFO0FBQ25CLFVBQUksQ0FBQyxJQUFJLEVBQUU7QUFDVCxZQUFJLEdBQUcsSUFBSSxJQUFJLENBQUM7QUFDZCxjQUFJLEVBQUUsT0FBTyxDQUFDLFdBQVc7QUFDekIsZUFBSyxFQUFFLE9BQU8sQ0FBQyxNQUFNLENBQUMsQ0FBQyxDQUFDLENBQUMsS0FBSztBQUM5QixjQUFJLEVBQUUsTUFBTTtBQUNaLGtCQUFRLEVBQUUsT0FBTyxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsQ0FBQyxLQUFLLENBQUMsS0FBSyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQztBQUMvQyxrQkFBUSxFQUFFLFFBQVE7QUFDbEIsZ0JBQU0sRUFBRSxPQUFPLENBQUMsS0FBSztTQUN0QixDQUFDLENBQUM7QUFDSCxZQUFJLENBQUMsU0FBUyxFQUFFLENBQ2IsSUFBSSxDQUFDLFVBQVMsSUFBSSxFQUFFO0FBQ25CLGlCQUFPLElBQUksQ0FBQyxJQUFJLEVBQUUsSUFBSSxDQUFDLENBQUM7U0FDekIsQ0FBQyxTQUNJLENBQUMsVUFBUyxHQUFHLEVBQUU7QUFDbkIsaUJBQU8sSUFBSSxDQUFDLEdBQUcsQ0FBQyxDQUFDO1NBQ2xCLENBQUMsQ0FBQztPQUNOLE1BQU07QUFDTCxlQUFPLElBQUksQ0FBQyxJQUFJLEVBQUUsSUFBSSxDQUFDLENBQUM7T0FDekI7S0FDRixDQUFDLFNBQ0ksQ0FBQyxVQUFTLEdBQUcsRUFBRTtBQUNuQixhQUFPLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQztLQUNsQixDQUFDLENBQUM7R0FDTixDQUFDLENBQUMsQ0FBQztDQUNMLENBQUMiLCJmaWxlIjoiL1VzZXJzL2Fkcmlhbi9jb2RlL21lYW5zaG9wL3NlcnZlci9hdXRoL2dvb2dsZS9wYXNzcG9ydC5qcyIsInNvdXJjZXNDb250ZW50IjpbInZhciBwYXNzcG9ydCA9IHJlcXVpcmUoJ3Bhc3Nwb3J0Jyk7XG52YXIgR29vZ2xlU3RyYXRlZ3kgPSByZXF1aXJlKCdwYXNzcG9ydC1nb29nbGUtb2F1dGgnKS5PQXV0aDJTdHJhdGVneTtcblxuZXhwb3J0cy5zZXR1cCA9IGZ1bmN0aW9uKFVzZXIsIGNvbmZpZykge1xuICBwYXNzcG9ydC51c2UobmV3IEdvb2dsZVN0cmF0ZWd5KHtcbiAgICBjbGllbnRJRDogY29uZmlnLmdvb2dsZS5jbGllbnRJRCxcbiAgICBjbGllbnRTZWNyZXQ6IGNvbmZpZy5nb29nbGUuY2xpZW50U2VjcmV0LFxuICAgIGNhbGxiYWNrVVJMOiBjb25maWcuZ29vZ2xlLmNhbGxiYWNrVVJMXG4gIH0sXG4gIGZ1bmN0aW9uKGFjY2Vzc1Rva2VuLCByZWZyZXNoVG9rZW4sIHByb2ZpbGUsIGRvbmUpIHtcbiAgICBVc2VyLmZpbmRPbmVBc3luYyh7XG4gICAgICAnZ29vZ2xlLmlkJzogcHJvZmlsZS5pZFxuICAgIH0pXG4gICAgICAudGhlbihmdW5jdGlvbih1c2VyKSB7XG4gICAgICAgIGlmICghdXNlcikge1xuICAgICAgICAgIHVzZXIgPSBuZXcgVXNlcih7XG4gICAgICAgICAgICBuYW1lOiBwcm9maWxlLmRpc3BsYXlOYW1lLFxuICAgICAgICAgICAgZW1haWw6IHByb2ZpbGUuZW1haWxzWzBdLnZhbHVlLFxuICAgICAgICAgICAgcm9sZTogJ3VzZXInLFxuICAgICAgICAgICAgdXNlcm5hbWU6IHByb2ZpbGUuZW1haWxzWzBdLnZhbHVlLnNwbGl0KCdAJylbMF0sXG4gICAgICAgICAgICBwcm92aWRlcjogJ2dvb2dsZScsXG4gICAgICAgICAgICBnb29nbGU6IHByb2ZpbGUuX2pzb25cbiAgICAgICAgICB9KTtcbiAgICAgICAgICB1c2VyLnNhdmVBc3luYygpXG4gICAgICAgICAgICAudGhlbihmdW5jdGlvbih1c2VyKSB7XG4gICAgICAgICAgICAgIHJldHVybiBkb25lKG51bGwsIHVzZXIpO1xuICAgICAgICAgICAgfSlcbiAgICAgICAgICAgIC5jYXRjaChmdW5jdGlvbihlcnIpIHtcbiAgICAgICAgICAgICAgcmV0dXJuIGRvbmUoZXJyKTtcbiAgICAgICAgICAgIH0pO1xuICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgIHJldHVybiBkb25lKG51bGwsIHVzZXIpO1xuICAgICAgICB9XG4gICAgICB9KVxuICAgICAgLmNhdGNoKGZ1bmN0aW9uKGVycikge1xuICAgICAgICByZXR1cm4gZG9uZShlcnIpO1xuICAgICAgfSk7XG4gIH0pKTtcbn07XG4iXX0=</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Aug 27 2015 23:37:52 GMT-0400 (AST)</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

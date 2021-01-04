@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for meanshop/server/auth/auth.service.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">meanshop/server/auth/auth.service.js</span></h1>
+    <h2>
+        Statements: <span class="metric">67.57% <small>(25 / 37)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">41.67% <small>(5 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">66.67% <small>(6 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">67.57% <small>(25 / 37)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">meanshop/server/auth/</a> &#187; auth.service.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+var passport = require('passport');
+var config = require('../config/environment');
+var jwt = require('jsonwebtoken');
+var expressJwt = require('express-jwt');
+var compose = require('composable-middleware');
+var User = require('../api/user/user.model');
+var validateJwt = expressJwt({
+  secret: config.secrets.session
+});
+&nbsp;
+/**
+ * Attaches the user object to the request if authenticated
+ * Otherwise returns 403
+ */
+function isAuthenticated() {
+  return compose()
+  // Validate jwt
+  .use(function (req, res, next) {
+    // allow access_token to be passed through query parameter as well
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (req.query &amp;&amp; req.query.hasOwnProperty('access_token')) {
+<span class="cstat-no" title="statement not covered" >      req.headers.authorization = 'Bearer ' + req.query.access_token;</span>
+    }
+    validateJwt(req, res, next);
+  })
+  // Attach user to request
+  .use(function (req, res, next) {
+    User.findByIdAsync(req.user._id).then(function (user) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (!user) {
+<span class="cstat-no" title="statement not covered" >        return res.status(401).end();</span>
+      }
+      req.user = user;
+      next();
+    })['catch'](<span class="fstat-no" title="function not covered" >function (err) {</span>
+<span class="cstat-no" title="statement not covered" >      return next(err);</span>
+    });
+  });
+}
+&nbsp;
+/**
+ * Checks if the user role meets the minimum requirements of the route
+ */
+function hasRole(roleRequired) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!roleRequired) {
+<span class="cstat-no" title="statement not covered" >    throw new Error('Required role needs to be set');</span>
+  }
+&nbsp;
+  return compose().use(isAuthenticated()).use(<span class="fstat-no" title="function not covered" >function meetsRequirements(req, res, next) {</span>
+<span class="cstat-no" title="statement not covered" >    if (config.userRoles.indexOf(req.user.role) &gt;= config.userRoles.indexOf(roleRequired)) {</span>
+<span class="cstat-no" title="statement not covered" >      next();</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      res.status(403).send('Forbidden');</span>
+    }
+  });
+}
+&nbsp;
+/**
+ * Returns a jwt token signed by the app secret
+ */
+function signToken(id, role) {
+  return jwt.sign({ _id: id, role: role }, config.secrets.session, {
+    expiresInMinutes: 60 * 5
+  });
+}
+&nbsp;
+/**
+ * Set token cookie directly for oAuth strategies
+ */
+<span class="fstat-no" title="function not covered" >function setTokenCookie(req, res) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!req.user) {</span>
+<span class="cstat-no" title="statement not covered" >    return res.status(404).send('Something went wrong, please try again.');</span>
+  }
+<span class="cstat-no" title="statement not covered" >  var token = signToken(req.user._id, req.user.role);</span>
+<span class="cstat-no" title="statement not covered" >  res.cookie('token', JSON.stringify(token));</span>
+<span class="cstat-no" title="statement not covered" >  res.redirect('/');</span>
+}
+&nbsp;
+exports.isAuthenticated = isAuthenticated;
+exports.hasRole = hasRole;
+exports.signToken = signToken;
+exports.setTokenCookie = setTokenCookie;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZHJpYW4vY29kZS9tZWFuc2hvcC9zZXJ2ZXIvYXV0aC9hdXRoLnNlcnZpY2UuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsWUFBWSxDQUFDOztBQUViLElBQUksUUFBUSxHQUFHLE9BQU8sQ0FBQyxVQUFVLENBQUMsQ0FBQztBQUNuQyxJQUFJLE1BQU0sR0FBRyxPQUFPLENBQUMsdUJBQXVCLENBQUMsQ0FBQztBQUM5QyxJQUFJLEdBQUcsR0FBRyxPQUFPLENBQUMsY0FBYyxDQUFDLENBQUM7QUFDbEMsSUFBSSxVQUFVLEdBQUcsT0FBTyxDQUFDLGFBQWEsQ0FBQyxDQUFDO0FBQ3hDLElBQUksT0FBTyxHQUFHLE9BQU8sQ0FBQyx1QkFBdUIsQ0FBQyxDQUFDO0FBQy9DLElBQUksSUFBSSxHQUFHLE9BQU8sQ0FBQyx3QkFBd0IsQ0FBQyxDQUFDO0FBQzdDLElBQUksV0FBVyxHQUFHLFVBQVUsQ0FBQztBQUMzQixRQUFNLEVBQUUsTUFBTSxDQUFDLE9BQU8sQ0FBQyxPQUFPO0NBQy9CLENBQUMsQ0FBQzs7Ozs7O0FBTUgsU0FBUyxlQUFlLEdBQUc7QUFDekIsU0FBTyxPQUFPLEVBQUU7O0dBRWIsR0FBRyxDQUFDLFVBQVMsR0FBRyxFQUFFLEdBQUcsRUFBRSxJQUFJLEVBQUU7O0FBRTVCLFFBQUksR0FBRyxDQUFDLEtBQUssSUFBSSxHQUFHLENBQUMsS0FBSyxDQUFDLGNBQWMsQ0FBQyxjQUFjLENBQUMsRUFBRTtBQUN6RCxTQUFHLENBQUMsT0FBTyxDQUFDLGFBQWEsR0FBRyxTQUFTLEdBQUcsR0FBRyxDQUFDLEtBQUssQ0FBQyxZQUFZLENBQUM7S0FDaEU7QUFDRCxlQUFXLENBQUMsR0FBRyxFQUFFLEdBQUcsRUFBRSxJQUFJLENBQUMsQ0FBQztHQUM3QixDQUFDOztHQUVELEdBQUcsQ0FBQyxVQUFTLEdBQUcsRUFBRSxHQUFHLEVBQUUsSUFBSSxFQUFFO0FBQzVCLFFBQUksQ0FBQyxhQUFhLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FDN0IsSUFBSSxDQUFDLFVBQVMsSUFBSSxFQUFFO0FBQ25CLFVBQUksQ0FBQyxJQUFJLEVBQUU7QUFDVCxlQUFPLEdBQUcsQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLENBQUMsR0FBRyxFQUFFLENBQUM7T0FDOUI7QUFDRCxTQUFHLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQztBQUNoQixVQUFJLEVBQUUsQ0FBQztLQUNSLENBQUMsU0FDSSxDQUFDLFVBQVMsR0FBRyxFQUFFO0FBQ25CLGFBQU8sSUFBSSxDQUFDLEdBQUcsQ0FBQyxDQUFDO0tBQ2xCLENBQUMsQ0FBQztHQUNOLENBQUMsQ0FBQztDQUNOOzs7OztBQUtELFNBQVMsT0FBTyxDQUFDLFlBQVksRUFBRTtBQUM3QixNQUFJLENBQUMsWUFBWSxFQUFFO0FBQ2pCLFVBQU0sSUFBSSxLQUFLLENBQUMsK0JBQStCLENBQUMsQ0FBQztHQUNsRDs7QUFFRCxTQUFPLE9BQU8sRUFBRSxDQUNiLEdBQUcsQ0FBQyxlQUFlLEVBQUUsQ0FBQyxDQUN0QixHQUFHLENBQUMsU0FBUyxpQkFBaUIsQ0FBQyxHQUFHLEVBQUUsR0FBRyxFQUFFLElBQUksRUFBRTtBQUM5QyxRQUFJLE1BQU0sQ0FBQyxTQUFTLENBQUMsT0FBTyxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLElBQ3ZDLE1BQU0sQ0FBQyxTQUFTLENBQUMsT0FBTyxDQUFDLFlBQVksQ0FBQyxFQUFFO0FBQzFDLFVBQUksRUFBRSxDQUFDO0tBQ1IsTUFDSTtBQUNILFNBQUcsQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxDQUFDO0tBQ25DO0dBQ0YsQ0FBQyxDQUFDO0NBQ047Ozs7O0FBS0QsU0FBUyxTQUFTLENBQUMsRUFBRSxFQUFFLElBQUksRUFBRTtBQUMzQixTQUFPLEdBQUcsQ0FBQyxJQUFJLENBQUMsRUFBRSxHQUFHLEVBQUUsRUFBRSxFQUFFLElBQUksRUFBRSxJQUFJLEVBQUUsRUFBRSxNQUFNLENBQUMsT0FBTyxDQUFDLE9BQU8sRUFBRTtBQUMvRCxvQkFBZ0IsRUFBRSxFQUFFLEdBQUcsQ0FBQztHQUN6QixDQUFDLENBQUM7Q0FDSjs7Ozs7QUFLRCxTQUFTLGNBQWMsQ0FBQyxHQUFHLEVBQUUsR0FBRyxFQUFFO0FBQ2hDLE1BQUksQ0FBQyxHQUFHLENBQUMsSUFBSSxFQUFFO0FBQ2IsV0FBTyxHQUFHLENBQUMsTUFBTSxDQUFDLEdBQUcsQ0FBQyxDQUFDLElBQUksQ0FBQyx5Q0FBeUMsQ0FBQyxDQUFDO0dBQ3hFO0FBQ0QsTUFBSSxLQUFLLEdBQUcsU0FBUyxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsR0FBRyxFQUFFLEdBQUcsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7QUFDbkQsS0FBRyxDQUFDLE1BQU0sQ0FBQyxPQUFPLEVBQUUsSUFBSSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQyxDQUFDO0FBQzNDLEtBQUcsQ0FBQyxRQUFRLENBQUMsR0FBRyxDQUFDLENBQUM7Q0FDbkI7O0FBRUQsT0FBTyxDQUFDLGVBQWUsR0FBRyxlQUFlLENBQUM7QUFDMUMsT0FBTyxDQUFDLE9BQU8sR0FBRyxPQUFPLENBQUM7QUFDMUIsT0FBTyxDQUFDLFNBQVMsR0FBRyxTQUFTLENBQUM7QUFDOUIsT0FBTyxDQUFDLGNBQWMsR0FBRyxjQUFjLENBQUMiLCJmaWxlIjoiL1VzZXJzL2Fkcmlhbi9jb2RlL21lYW5zaG9wL3NlcnZlci9hdXRoL2F1dGguc2VydmljZS5qcyIsInNvdXJjZXNDb250ZW50IjpbIid1c2Ugc3RyaWN0JztcblxudmFyIHBhc3Nwb3J0ID0gcmVxdWlyZSgncGFzc3BvcnQnKTtcbnZhciBjb25maWcgPSByZXF1aXJlKCcuLi9jb25maWcvZW52aXJvbm1lbnQnKTtcbnZhciBqd3QgPSByZXF1aXJlKCdqc29ud2VidG9rZW4nKTtcbnZhciBleHByZXNzSnd0ID0gcmVxdWlyZSgnZXhwcmVzcy1qd3QnKTtcbnZhciBjb21wb3NlID0gcmVxdWlyZSgnY29tcG9zYWJsZS1taWRkbGV3YXJlJyk7XG52YXIgVXNlciA9IHJlcXVpcmUoJy4uL2FwaS91c2VyL3VzZXIubW9kZWwnKTtcbnZhciB2YWxpZGF0ZUp3dCA9IGV4cHJlc3NKd3Qoe1xuICBzZWNyZXQ6IGNvbmZpZy5zZWNyZXRzLnNlc3Npb25cbn0pO1xuXG4vKipcbiAqIEF0dGFjaGVzIHRoZSB1c2VyIG9iamVjdCB0byB0aGUgcmVxdWVzdCBpZiBhdXRoZW50aWNhdGVkXG4gKiBPdGhlcndpc2UgcmV0dXJucyA0MDNcbiAqL1xuZnVuY3Rpb24gaXNBdXRoZW50aWNhdGVkKCkge1xuICByZXR1cm4gY29tcG9zZSgpXG4gICAgLy8gVmFsaWRhdGUgand0XG4gICAgLnVzZShmdW5jdGlvbihyZXEsIHJlcywgbmV4dCkge1xuICAgICAgLy8gYWxsb3cgYWNjZXNzX3Rva2VuIHRvIGJlIHBhc3NlZCB0aHJvdWdoIHF1ZXJ5IHBhcmFtZXRlciBhcyB3ZWxsXG4gICAgICBpZiAocmVxLnF1ZXJ5ICYmIHJlcS5xdWVyeS5oYXNPd25Qcm9wZXJ0eSgnYWNjZXNzX3Rva2VuJykpIHtcbiAgICAgICAgcmVxLmhlYWRlcnMuYXV0aG9yaXphdGlvbiA9ICdCZWFyZXIgJyArIHJlcS5xdWVyeS5hY2Nlc3NfdG9rZW47XG4gICAgICB9XG4gICAgICB2YWxpZGF0ZUp3dChyZXEsIHJlcywgbmV4dCk7XG4gICAgfSlcbiAgICAvLyBBdHRhY2ggdXNlciB0byByZXF1ZXN0XG4gICAgLnVzZShmdW5jdGlvbihyZXEsIHJlcywgbmV4dCkge1xuICAgICAgVXNlci5maW5kQnlJZEFzeW5jKHJlcS51c2VyLl9pZClcbiAgICAgICAgLnRoZW4oZnVuY3Rpb24odXNlcikge1xuICAgICAgICAgIGlmICghdXNlcikge1xuICAgICAgICAgICAgcmV0dXJuIHJlcy5zdGF0dXMoNDAxKS5lbmQoKTtcbiAgICAgICAgICB9XG4gICAgICAgICAgcmVxLnVzZXIgPSB1c2VyO1xuICAgICAgICAgIG5leHQoKTtcbiAgICAgICAgfSlcbiAgICAgICAgLmNhdGNoKGZ1bmN0aW9uKGVycikge1xuICAgICAgICAgIHJldHVybiBuZXh0KGVycik7XG4gICAgICAgIH0pO1xuICAgIH0pO1xufVxuXG4vKipcbiAqIENoZWNrcyBpZiB0aGUgdXNlciByb2xlIG1lZXRzIHRoZSBtaW5pbXVtIHJlcXVpcmVtZW50cyBvZiB0aGUgcm91dGVcbiAqL1xuZnVuY3Rpb24gaGFzUm9sZShyb2xlUmVxdWlyZWQpIHtcbiAgaWYgKCFyb2xlUmVxdWlyZWQpIHtcbiAgICB0aHJvdyBuZXcgRXJyb3IoJ1JlcXVpcmVkIHJvbGUgbmVlZHMgdG8gYmUgc2V0Jyk7XG4gIH1cblxuICByZXR1cm4gY29tcG9zZSgpXG4gICAgLnVzZShpc0F1dGhlbnRpY2F0ZWQoKSlcbiAgICAudXNlKGZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHJlcSwgcmVzLCBuZXh0KSB7XG4gICAgICBpZiAoY29uZmlnLnVzZXJSb2xlcy5pbmRleE9mKHJlcS51c2VyLnJvbGUpID49XG4gICAgICAgICAgY29uZmlnLnVzZXJSb2xlcy5pbmRleE9mKHJvbGVSZXF1aXJlZCkpIHtcbiAgICAgICAgbmV4dCgpO1xuICAgICAgfVxuICAgICAgZWxzZSB7XG4gICAgICAgIHJlcy5zdGF0dXMoNDAzKS5zZW5kKCdGb3JiaWRkZW4nKTtcbiAgICAgIH1cbiAgICB9KTtcbn1cblxuLyoqXG4gKiBSZXR1cm5zIGEgand0IHRva2VuIHNpZ25lZCBieSB0aGUgYXBwIHNlY3JldFxuICovXG5mdW5jdGlvbiBzaWduVG9rZW4oaWQsIHJvbGUpIHtcbiAgcmV0dXJuIGp3dC5zaWduKHsgX2lkOiBpZCwgcm9sZTogcm9sZSB9LCBjb25maWcuc2VjcmV0cy5zZXNzaW9uLCB7XG4gICAgZXhwaXJlc0luTWludXRlczogNjAgKiA1XG4gIH0pO1xufVxuXG4vKipcbiAqIFNldCB0b2tlbiBjb29raWUgZGlyZWN0bHkgZm9yIG9BdXRoIHN0cmF0ZWdpZXNcbiAqL1xuZnVuY3Rpb24gc2V0VG9rZW5Db29raWUocmVxLCByZXMpIHtcbiAgaWYgKCFyZXEudXNlcikge1xuICAgIHJldHVybiByZXMuc3RhdHVzKDQwNCkuc2VuZCgnU29tZXRoaW5nIHdlbnQgd3JvbmcsIHBsZWFzZSB0cnkgYWdhaW4uJyk7XG4gIH1cbiAgdmFyIHRva2VuID0gc2lnblRva2VuKHJlcS51c2VyLl9pZCwgcmVxLnVzZXIucm9sZSk7XG4gIHJlcy5jb29raWUoJ3Rva2VuJywgSlNPTi5zdHJpbmdpZnkodG9rZW4pKTtcbiAgcmVzLnJlZGlyZWN0KCcvJyk7XG59XG5cbmV4cG9ydHMuaXNBdXRoZW50aWNhdGVkID0gaXNBdXRoZW50aWNhdGVkO1xuZXhwb3J0cy5oYXNSb2xlID0gaGFzUm9sZTtcbmV4cG9ydHMuc2lnblRva2VuID0gc2lnblRva2VuO1xuZXhwb3J0cy5zZXRUb2tlbkNvb2tpZSA9IHNldFRva2VuQ29va2llO1xuIl19</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Aug 27 2015 23:38:07 GMT-0400 (AST)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
